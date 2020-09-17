@@ -16,7 +16,7 @@ namespace Ex2
             get;
         }
 
-        public string? Prenom { get; set; }
+        public string Prenom { get; set; }
 
         // attributs d'instance
         private int? age;
@@ -33,15 +33,13 @@ namespace Ex2
         }
 	    // constructeurs
         
-        public Personne(String n, int? age = 10){
+        public Personne(String prenom, String n, int? age = ageMinimum){
+            this.Prenom = prenom;
             this.Nom = n;
 	        this.Age=age;
 	    }
-
-        public Personne(Personne p) : this(p.Nom, p.Age)
-        {
-
-        }
+        public Personne(string nom, int? age) : this(null, nom, age) { }
+        public Personne(Personne p, string nom) : this(p.Prenom, p.Nom, p.Age) { }
         public static Personne operator +(Personne p, int annee)
         {
             p.Age += annee;
@@ -51,9 +49,9 @@ namespace Ex2
         {
             if (string.IsNullOrEmpty(this.Prenom))
             {
-                return $"{this.Nom} ({this.Age})";
+                return $"{this.Nom} ({this.Age} ans)";
             }
-            return $"{this.Prenom} {this.Nom} ({this.Age})";
+            return $"{this.Prenom} {this.Nom} ({this.Age} ans)";
         }
         public override bool Equals(Object obj)
         {

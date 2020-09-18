@@ -51,9 +51,6 @@ namespace Exercice2
             list[1].Prenom = "Milou";
             Console.WriteLine($"Liste après changement du prénom de la seconde personne: \n{list.ToString()}\n");
 
-            //list["Milou"].Prenom = "Rintintin";
-            //list["Milou"].Age = 24;
-
             list["Milou"] = new Personne("Rintintin", 24);
             Console.WriteLine($"Liste après remplacement de Milou par Rintintin: \n{list.ToString()}\n");
 

@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Ex2
 {
-  
-    //classe Personne
-    public class Personne {
 
+    //classe Personne
+    public class Personne
+    {
         const int ageMinimum = 10;
          	
         // propriétés d'instance
@@ -39,7 +40,7 @@ namespace Ex2
 	        this.Age=age;
 	    }
         public Personne(string nom, int? age) : this(null, nom, age) { }
-        public Personne(Personne p, string nom) : this(p.Prenom, p.Nom, p.Age) { }
+        public Personne(Personne p, string prenom) : this(prenom, p.Nom, p.Age) { }
         public static Personne operator +(Personne p, int annee)
         {
             p.Age += annee;
@@ -63,7 +64,10 @@ namespace Ex2
             }
             return this.Nom == p.Nom && this.Age == p.Age ;
         }
-
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }//classe
 }
       
